@@ -6,5 +6,5 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     
     //autenticación y autorizaciones
-    
+
 }

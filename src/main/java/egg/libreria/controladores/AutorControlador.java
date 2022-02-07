@@ -37,6 +37,7 @@ public class AutorControlador {
 
     @GetMapping("/cargar")
     public String cargar(Autor autor, Model model) {
+        model.addAttribute("titulo", "CARGAR AUTOR");
         model.addAttribute("pholder","Introduce el nombre aquí");
         return ("cargar-autor.html");
     }
@@ -53,6 +54,7 @@ public class AutorControlador {
             }
             return ("lista-autores.html");
         } catch (Exception e) {
+            model.addAttribute("titulo", "ERROR AL GUARDAR");
             model.addAttribute("error", e.getMessage());
             return "cargar-autor.html";
         }
@@ -74,7 +76,7 @@ public class AutorControlador {
 
     @GetMapping("/editar")
     public String editarPantalla(Model model, Autor autor, @RequestParam Integer id) {
-        model.addAttribute("pholder", autorServicio.findById(id).getNombre());
+        model.addAttribute("autor", autorServicio.findById(id));
         model.addAttribute("esAutor", true);
         model.addAttribute("titulo", "EDITAR AUTOR");
         return "editar.html";

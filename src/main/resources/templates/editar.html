@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title th:text="${title}"></title>
 </head>
 
@@ -17,19 +17,20 @@
     <div class="formulario" th:if="${esAutor}">
         <form th:action="@{/libreria/autor/editar}" th:object="${autor}" method="post">
             <label for="nombre-autor">NOMBRE</label>
-            <input id="nombre-autor" type="text" th:field="*{nombre}" th:placeholder="${pholder}">
+            <input id="nombre-autor" type="text" th:field="*{nombre}">
+            <input type="hidden" th:field="*{id}">
             <input type="submit" value="Submit">
         </form>
     </div>
 
     <!-- EDITORIAL -->
-    <div class="formulario" th:if="${esEditorial}">
+    <!-- <div class="formulario" th:if="${esEditorial}">
         <form th:action="@{/libreria/editorial/guardar}" th:object="${editorial}" method="post">
             <label for="nombre-editorial">NOMBRE</label>
             <input id="nombre-editorial" type="text" th:field="*{nombre}" th:placeholder="${pholder}">
             <input type="submit" value="Submit">
         </form>
-    </div>
+    </div> -->
 
     <!-- LIBRO -->
     <!-- <div class="formulario">
