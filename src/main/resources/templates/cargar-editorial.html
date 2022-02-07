@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Cargar editorial</title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <h1>CARGAR EDITORIAL</h1>
+    </div>
+    <div th:if="${error}" class="error">
+        <p th:text="${error}"></p>
+    </div>
+    <div class="formulario">
+        <form th:action="@{/libreria/editorial/guardar}" th:object="${editorial}" method="post">
+            <label for="nombre-editorial">NOMBRE</label>
+            <input id="nombre-editorial" type="text" th:field="*{nombre}">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+    <a class="volver" th:href="@{/libreria/editorial}">VOLVER</a>
+
+    <footer>
+        <div>
+            <p>Libreria Project - Egg - Franco Moyano 2022</p>
+        </div>
+    </footer>
+</body>
+
+</html>

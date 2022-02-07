@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Autores</title>
+</head>
+
+<body>
+    <nav th:replace="/fragments/nav-bar :: nav-bar"></nav>
+
+    <div class="success" th:if="${success}">
+        <p th:text="${success}"></p>
+    </div>
+
+    <div class="error" th:if="${elementos == null or elementos.empty}">
+        <p th:text="'No hay ningun autor en la base de datos'"></p>
+    </div>
+
+    <div th:if="${elementos != null and !elementos.empty}" class="lista">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <!-- <th class="cabecera">ID</th> -->
+                    <th class="cabecera">NOMBRE</th>
+                    <th class="cabecera">ALTA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="fila" th:each="e: ${elementos}">
+                    <td class="item" th:text="${e.nombre}"></td>
+                    <td class="item" th:text="${e.alta}"></td>
+                    <td class="modificar"><a th:href="@{/libreria/autor/editar?id=} + ${e.id}">Modificar</a></td>
+                    <!-- <td class="eliminar"><a th:href="@{/libreria/autor/eliminar/} + ${e.id}">Eliminar</a></td> -->
+                    <td class="eliminar"><a th:href="@{/libreria/autor/eliminar?id=} + ${e.id}">Eliminar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a class="volver" th:href="@{/libreria/autor}">Volver</a>
+
+    <footer>
+        <div>
+            <p>Libreria Project - Egg - Franco Moyano 2022</p>
+        </div>
+    </footer>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+</body>
+
+</html>

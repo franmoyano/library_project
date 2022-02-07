@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>LibreriaApp</title>
+</head>
+
+<body>
+    <nav th:replace="/fragments/nav-bar :: nav-bar"></nav>
+    <div class="success" th:if="${mensaje}">
+        <p th:text="${mensaje}"></p>
+    </div>
+    <div class="flex">
+        <a class="boton" th:href="@{/libreria/autor}">AUTOR</a>
+        <a class="boton" th:href="@{/libreria/editorial}">EDITORIAL</a>
+        <a class="boton" href="#">LIBRO</a>
+    </div>
+
+    <footer>
+        <div>
+            <p>Libreria Project - Egg - Franco Moyano 2022</p>
+        </div>
+    </footer>
+</body>
+
+</html>

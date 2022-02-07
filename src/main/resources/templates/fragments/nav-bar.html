@@ -1,0 +1,6 @@
+<nav th:fragment="nav-bar" class="nav-bar">
+    <h1 th:text="${titulo}"></h1>
+    <img th:if="${inicio}" src="/images/libros.png" alt="libros">
+    <a class="login-button" href="#">Ingresar</a>
+    <a class="login-button" th:href="@{/libreria/user/sign-up}">Registrarse</a>
+</nav>
