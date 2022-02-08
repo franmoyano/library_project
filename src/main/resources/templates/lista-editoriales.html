@@ -32,7 +32,7 @@
                     <td class="item" th:text="${e.nombre}"></td>
                     <td class="item" th:text="${e.alta}"></td>
                     <td class="modificar"><a th:href="@{/libreria/editorial/editar?id=} + ${e.id}">Modificar</a></td>
-                    <td class="eliminar"><a th:href="@{/libreria/editorial/eliminar/} + ${e.id}">Eliminar</a></td>
+                    <td class="eliminar"><a th:href="@{/libreria/editorial/eliminar?id=} + ${e.id}">Eliminar</a></td>
                 </tr>
             </tbody>
         </table>

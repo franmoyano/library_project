@@ -58,8 +58,8 @@ public class EditorialControlador {
         return "redirect:/libreria/editorial/lista-editoriales";
     }
 
-    @GetMapping("/eliminar/{id}")
-    public String eliminar(Model model, @PathVariable(name = "id") Integer id) {
+    @GetMapping("/eliminar")
+    public String eliminar(Model model, Integer id) {
         try {
             editorialServicio.eliminar(id);
             model.addAttribute("success", "Editorial eliminada con éxito");
