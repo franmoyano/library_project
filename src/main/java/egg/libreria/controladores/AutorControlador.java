@@ -76,8 +76,8 @@ public class AutorControlador {
 
     @GetMapping("/editar")
     public String editarPantalla(Model model, Autor autor, @RequestParam Integer id) {
-        model.addAttribute("autor", autorServicio.findById(id));
         model.addAttribute("esAutor", true);
+        model.addAttribute("autor", autorServicio.findById(id));
         model.addAttribute("titulo", "EDITAR AUTOR");
         return "editar.html";
     }
@@ -88,3 +88,5 @@ public class AutorControlador {
         return "redirect:/libreria/autor/lista-autores";
     }
 }
+
+

@@ -49,15 +49,6 @@ public class AutorServicio {
     }
 
     @Transactional
-    public void altaBaja(Integer id) throws ErrorServicio {
-
-        Optional<Autor> respuesta = autorRepositorio.findById(id);
-        if (respuesta.isPresent()) {
-
-        }
-    }
-
-    @Transactional
     public void actualizar(Autor autor) {
         autorRepositorio.actualizar(autor.getNombre(), autor.getId());
     }

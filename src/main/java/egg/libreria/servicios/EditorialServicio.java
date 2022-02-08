@@ -32,6 +32,16 @@ public class EditorialServicio {
     }
 
     @Transactional
+    public Editorial findById(Integer id) {
+        return editorialRepositorio.selectById(id);
+    }
+
+    @Transactional
+    public void actualizar(Editorial editorial) {
+        editorialRepositorio.actualizar(editorial.getNombre(), editorial.getId());
+    }
+
+    @Transactional
     public void eliminar(Integer id) throws ErrorServicio {
         try {
             editorialRepositorio.deleteById(id);

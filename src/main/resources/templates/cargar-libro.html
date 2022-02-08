@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Cargar libro</title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <h1>CARGAR LIBRO</h1>
+    </div>
+    <div th:if="${error}" class="error">
+        <p th:text="${error}"></p>
+    </div>
+    <div class="formulario">
+        <form th:action="@{/libreria/libro/guardar}" th:object="${libro}" method="post">
+            <label for="nombre-libro">TITULO</label>
+            <input id="nombre-libro" type="text" th:field="*{titulo}">
+            
+            <label for="isbn">ISBN</label>
+            <input id="isbn" type="number" th:field="*{isbn}">
+            
+            <label for="anio">AÑO</label>
+            <input id="anio" type="number" th:field="*{anio}" th:min="0" th:max="2022">
+
+            <label for="ejemplares">EJEMPLARES TOTALES</label>
+            <input id="ejemplares" type="number" th:field="*{ejemplares}">
+
+            <label for="ejemplaresPrestados">EJEMPLARES PRESTADOS</label>
+            <input id="ejemplaresPrestados" type="number" th:field="*{ejemplaresPrestados}">
+            
+            <input id="submit" type="submit" value="Submit">
+        </form>
+    </div>
+    
+    <a class="volver" th:href="@{/libreria/libro}">VOLVER</a>
+
+    <footer>
+        <div>
+            <p>Libreria Project - Egg - Franco Moyano 2022</p>
+        </div>
+    </footer>
+</body>
+
+</html>

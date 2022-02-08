@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Libros</title>
+</head>
+
+<body>
+    <nav th:replace="/fragments/nav-bar :: nav-bar"></nav>
+    <div class="success" th:if="${success}">
+        <p th:text="${success}"></p>
+    </div>
+    <div class="error" th:if="${libros == null or libros.empty}">
+        <p th:text="'No hay ningun libro en la base de datos'"></p>
+    </div>
+    <div th:if="${libros != null and !libros.empty}" class="lista">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <!-- <th class="cabecera">ID</th> -->
+                    <th class="cabecera">TITULO</th>
+                    <th class="cabecera">ISBN</th>
+                    <th class="cabecera">AÑO</th>
+                    <th class="cabecera">EJEMPLARES</th>
+                    <th class="cabecera">PRESTADOS</th>
+                    <th class="cabecera">DISPONIBLES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="fila" th:each="libro: ${libros}">
+                    <!-- <td class="item" th:text="${e.id}"></td> -->
+                    <td class="item" th:text="${libro.nombre}"></td>
+                    <td class="item" th:text="${libro.isbn}"></td>
+                    <td class="item" th:text="${libro.anio}"></td>
+                    <td class="item" th:text="${libro.ejemplares}"></td>
+                    <td class="item" th:text="${libro.ejemplaresPrestados}"></td>
+                    <td class="item" th:text="${libro.ejemplaresRestantes}"></td>
+                    <td class="modificar"><a th:href="@{/libreria/libro/editar?id=} + ${libro.id}">Modificar</a></td>
+                    <td class="eliminar"><a th:href="@{/libreria/libro/eliminar/} + ${libro.id}">Eliminar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a class="volver" th:href="@{/libreria/libro}">Volver</a>
+</body>
+
+</html>

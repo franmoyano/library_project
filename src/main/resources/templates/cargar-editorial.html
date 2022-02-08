@@ -20,7 +20,7 @@
         <form th:action="@{/libreria/editorial/guardar}" th:object="${editorial}" method="post">
             <label for="nombre-editorial">NOMBRE</label>
             <input id="nombre-editorial" type="text" th:field="*{nombre}">
-            <input type="submit" value="Submit">
+            <input id="submit" type="submit" value="Submit">
         </form>
     </div>
     

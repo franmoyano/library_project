@@ -5,10 +5,7 @@ import egg.libreria.servicios.EditorialServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/libreria/editorial")
@@ -44,6 +41,20 @@ public class EditorialControlador {
             model.addAttribute("error", e.getMessage());
             return "cargar-editorial.html";
         }
+    }
+
+    @GetMapping("/editar")
+    public String editarPantalla(Model model, Editorial editorial, @RequestParam Integer id) {
+        model.addAttribute("esEditorial", true);
+        model.addAttribute("editorial", editorialServicio.findById(id));
+        model.addAttribute("titulo", "EDITAR EDITORIAL");
+        return "editar.html";
+    }
+
+    @PostMapping("/editar")
+    public String editar(Model model, Editorial editorial) {
+        editorialServicio.actualizar(editorial);
+        return "redirect:/libreria/editorial/lista-editoriales";
     }
 
     @GetMapping("/eliminar/{id}")
