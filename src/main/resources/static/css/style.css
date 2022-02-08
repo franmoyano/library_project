@@ -131,7 +131,8 @@ body {
     width: 350px;
 }
 
-.formulario input {
+.formulario input,
+.formulario select {
     font-size: 1.1rem;
     color: #FFF;
     background-color: rgb(54, 54, 54);

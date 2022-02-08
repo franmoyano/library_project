@@ -16,6 +16,7 @@
     <div th:if="${error}" class="error">
         <p th:text="${error}"></p>
     </div>
+    
     <div class="formulario">
         <form th:action="@{/libreria/libro/guardar}" th:object="${libro}" method="post">
             <label for="nombre-libro">TITULO</label>
@@ -26,12 +27,22 @@
             
             <label for="anio">AÑO</label>
             <input id="anio" type="number" th:field="*{anio}" th:min="0" th:max="2022">
-
+            
             <label for="ejemplares">EJEMPLARES TOTALES</label>
             <input id="ejemplares" type="number" th:field="*{ejemplares}">
 
             <label for="ejemplaresPrestados">EJEMPLARES PRESTADOS</label>
             <input id="ejemplaresPrestados" type="number" th:field="*{ejemplaresPrestados}">
+            
+            <label for="autorLibro">AUTOR</label>
+            <select name="autorLibro" id="autorLibro">
+                <option th:each="a : ${autores}" th:value="${a}" th:text="${a.nombre}" th:field="*{autor}"></option>
+            </select>
+            
+            <label for="editorialLibro">EDITORIAL</label>
+            <select name="e" id="editorialLibro">
+                <option th:each="e : ${editoriales}" th:value="${e.nombre}" th:text="${e.nombre}" th:field="*{editorial}"></option>
+            </select>
             
             <input class="submit" type="submit" value="Submit">
         </form>

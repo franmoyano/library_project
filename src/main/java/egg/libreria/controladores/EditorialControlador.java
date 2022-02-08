@@ -30,6 +30,7 @@ public class EditorialControlador {
     @GetMapping("/cargar")
     public String cargar(Model model, Editorial editorial) {
         model.addAttribute("titulo", "GUARDAR EDITORIAL");
+        model.addAttribute("pholder", "Introduce el nombre aquí");
         return ("cargar-editorial.html");
     }
 
