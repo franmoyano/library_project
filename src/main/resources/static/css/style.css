@@ -141,13 +141,13 @@ body {
     width: 100%;
 }
 
-#submit {
+.submit {
     color: #000;
     width: 50%;
     background-color: rgb(255, 255, 255);
 }
 
-#submit:hover {
+.submit:hover {
     cursor: pointer;
 }
 

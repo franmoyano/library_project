@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav th:replace="/fragments/nav-bar :: nav-bar"></nav>
+    <nav th:replace="/fragments/fragments :: nav-bar"></nav>
     <div class="success" th:if="${mensaje}">
         <p th:text="${mensaje}"></p>
     </div>
@@ -20,11 +20,7 @@
         <a class="boton" th:href="@{/libreria/libro}">LIBRO</a>
     </div>
 
-    <footer>
-        <div>
-            <p>Libreria Project - Egg - Franco Moyano 2022</p>
-        </div>
-    </footer>
+    <footer th:replace="/fragments/fragments :: footer"></footer>
 </body>
 
 </html>

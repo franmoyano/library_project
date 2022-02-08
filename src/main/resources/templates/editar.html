@@ -11,7 +11,7 @@
 
 <body>
 
-    <nav th:replace="/fragments/nav-bar :: nav-bar"></nav>
+    <nav th:replace="/fragments/fragments :: nav-bar"></nav>
     
     <!-- AUTOR -->
     <div class="formulario" th:if="${esAutor}">
@@ -45,6 +45,7 @@
     
     <a class="volver" th:href="@{/libreria/autor/lista-autores}">VOLVER</a>
 
+    <footer th:replace="/fragments/fragments :: footer"></footer>
 </body>
 
 </html>

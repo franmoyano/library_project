@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav th:replace="/fragments/nav-bar :: nav-bar"></nav>
+    <nav th:replace="/fragments/fragments :: nav-bar"></nav>
     <div class="flex">
         <a class="boton" th:href="@{/libreria/editorial/lista-editoriales}">LISTA DE EDITORIALES</a>
         <a class="boton" href="#">EDITORIALES ACTIVAS</a>
@@ -18,11 +18,7 @@
         <a class="volver" th:href="@{/libreria/}">VOLVER</a>
     </div>
 
-    <footer>
-        <div>
-            <p>Libreria Project - Egg - Franco Moyano 2022</p>
-        </div>
-    </footer>
+    <footer th:replace="/fragments/fragments :: footer"></footer>
 </body>
 
 </html>

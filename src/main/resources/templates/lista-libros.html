@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav th:replace="/fragments/nav-bar :: nav-bar"></nav>
+    <nav th:replace="/fragments/fragments :: nav-bar"></nav>
     <div class="success" th:if="${success}">
         <p th:text="${success}"></p>
     </div>
@@ -47,6 +47,8 @@
     </div>
 
     <a class="volver" th:href="@{/libreria/libro}">Volver</a>
+
+    <footer th:replace="/fragments/fragments :: footer"></footer>
 </body>
 
 </html>

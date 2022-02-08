@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <div class="nav-bar">
-        <h1>CARGAR EDITORIAL</h1>
-    </div>
+    <nav th:replace="/fragments/fragments :: nav-bar"></nav>
     <div th:if="${error}" class="error">
         <p th:text="${error}"></p>
     </div>
@@ -20,17 +18,13 @@
         <form th:action="@{/libreria/editorial/guardar}" th:object="${editorial}" method="post">
             <label for="nombre-editorial">NOMBRE</label>
             <input id="nombre-editorial" type="text" th:field="*{nombre}">
-            <input id="submit" type="submit" value="Submit">
+            <input class="submit" type="submit" value="Submit">
         </form>
     </div>
     
     <a class="volver" th:href="@{/libreria/editorial}">VOLVER</a>
 
-    <footer>
-        <div>
-            <p>Libreria Project - Egg - Franco Moyano 2022</p>
-        </div>
-    </footer>
+    <footer th:replace="/fragments/fragments :: footer"></footer>
 </body>
 
 </html>

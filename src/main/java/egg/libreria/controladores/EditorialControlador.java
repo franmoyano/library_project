@@ -28,7 +28,8 @@ public class EditorialControlador {
     }
 
     @GetMapping("/cargar")
-    public String cargar(Editorial editorial) {
+    public String cargar(Model model, Editorial editorial) {
+        model.addAttribute("titulo", "GUARDAR EDITORIAL");
         return ("cargar-editorial.html");
     }
 

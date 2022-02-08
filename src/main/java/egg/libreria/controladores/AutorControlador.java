@@ -37,7 +37,7 @@ public class AutorControlador {
 
     @GetMapping("/cargar")
     public String cargar(Autor autor, Model model) {
-        model.addAttribute("titulo", "CARGAR AUTOR");
+        model.addAttribute("titulo", "GUARDAR AUTOR");
         model.addAttribute("pholder","Introduce el nombre aquí");
         return ("cargar-autor.html");
     }
